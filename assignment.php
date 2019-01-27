@@ -24,7 +24,7 @@ if ($mysqli->connect_errno) {
 
 // retreive global car table
 if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
-
+    print($result);
     $result->close();
 }
 
