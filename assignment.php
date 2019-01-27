@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en-US">
 <head>
-    </title>Virtual Car Garage</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Virtual Car Garage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 <?php
@@ -23,7 +23,8 @@ if ($mysqli->connect_errno) {
 }
 
 // retreive global car table
-if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_USE_RESULT)){
+if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
+
     $result->close();
 }
 
