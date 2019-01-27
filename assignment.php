@@ -13,7 +13,7 @@
  * Time: 6:41 PM
  */
 // attempt to connect to db
-$mysqli = new mysqli("ec2-3-86-186-255.compute-1.amazonaws.com",
+$mysqli = new mysqli("3.86.186.255",
     "phpmyadmin", "ddw6991", "assignment1");
 
 // check connection
