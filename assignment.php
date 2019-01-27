@@ -1,3 +1,10 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    </title>Virtual Car Garage</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -5,11 +12,25 @@
  * Date: 1/23/2019
  * Time: 6:41 PM
  */
-# import html dom parser
-require 'simple_html_dom.php';
-# define the URL to read from
-$html = file_get_html('https://www.kudosprime.com/gts/carlist.php');
-# get carlist from div tag id
-$carlist = $html->find('div[id=carlist]');
-echo $carlist;
+// attempt to connect to db
+$mysqli = new mysqli("ec2-3-86-186-255.compute-1.amazonaws.com",
+    "phpmyadmin", "ddw6991", "assignment1");
+
+// check connection
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+
+// retreive global car table
+if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_USE_RESULT)){
+    $result->close();
+}
+
+
 ?>
+<table>
+    <thead>
+    </thead>
+</table>
+</html>
