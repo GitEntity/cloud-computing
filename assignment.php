@@ -13,7 +13,7 @@
  * Time: 6:41 PM
  */
 // attempt to connect to db
-$mysqli = new mysqli("3.86.186.255",
+$mysqli = new mysqli("localhost",
     "phpmyadmin", "ddw6991", "assignment1");
 
 // check connection
