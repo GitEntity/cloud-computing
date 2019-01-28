@@ -43,24 +43,19 @@
             <th>All Cars</th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-
-        </tr>
-    </tbody>
     <tfoot>
     <tr>
         <td>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <button class="button-warning pure-button">Remove from Garage</button>
-                <button class="button-success pure-button">Compare</button>
-                <button class="button-error pure-button">Delete Garage</button>
+                <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
+                <button class="button-success pure-button" name="compare">Compare</button>
+                <button class="button-error pure-button" name="delete garage">Delete Garage</button>
             </form>
         </td>
         <td>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <button class="button-secondary pure-button">Add to Garage</button>
-                <button class="button-success pure-button">Create New Garage</button>
+                <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
+                <button class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
     </tr>
@@ -86,20 +81,23 @@ if ($mysqli->connect_errno) {
 }
 
 $query = "SELECT * FROM GlobalCars";
-// retreive global car table
+// retrieve global car table
 if ($result = $mysqli->query($query)){
-    $rowNumber = 0;
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><form action="<?php echo $_SERVER[\'PHP_SELF\']; ?>" method="POST">
-<input type="checkbox" name="<?php $rowNumber; ?>">
-</form><img src=' . $row["car image"] . ' alt=' .
+        echo '<html lang="en-US"><table><thead><tr>
+<td>Car Name</td><td>Category</td><td>Drivetrain</td>
+<td>Power</td><td>Weight</td><td>Acceleration</td>
+<td>Braking</td><td>Cornering</td><td>Stability</td>
+</tr></thead>
+<tbody><tr>
+<td><form method="POST">
+<input type="checkbox" name="rowNumber[]"></form></td>
+<td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
+<td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
+<td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
+</tr></tbody></table><img src=' . $row["car image"] . ' alt=' .
             $row["car name"] . '></html>';
-        printf ("Car Name: %s  Cat.: %s  Drivetrain: %s  HP: %s  Lbs.: %s
-            Speed: %Accel.: %s  Braking: %s  Cornering: %s  Stability: %s",
-            $row["car name"], $row["category"], $row["drivetrain"],
-            $row["power"], $row["weight"], $row["acceleration"], $row["braking"],
-            $row["cornering"], $row["stability"]);
     }
     $result->close();
 }
