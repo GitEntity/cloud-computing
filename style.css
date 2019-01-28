@@ -18,7 +18,7 @@ td.button{
 td{
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
     text-align: justify;
-    padding: 0px 5px;
+    padding: 0px 7px;
 }
 
 th.rotate {
@@ -37,5 +37,5 @@ th.rotate > div {
 }
 th.rotate > div > span {
     border-bottom: 1px solid #ccc;
-    padding: 5px 10px;
+    padding: 20px 10px;
 }
