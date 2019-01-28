@@ -47,15 +47,15 @@
     <tr>
         <td>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
-                <button class="button-success pure-button" name="compare">Compare</button>
-                <button class="button-error pure-button" name="delete garage">Delete Garage</button>
+                <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
+                <button class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
         <td>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button class="button-success pure-button" name="create new garage">Create New Garage</button>
+                <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
+                <button class="button-success pure-button" name="compare">Compare</button>
+                <button class="button-error pure-button" name="delete garage">Delete Garage</button>
             </form>
         </td>
     </tr>
@@ -84,7 +84,7 @@ $query = "SELECT * FROM GlobalCars";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
     echo '<html lang="en-US"><table><thead><tr>
-<th>Select</th><th>Car Name</th><th>Category</th><th>Drivetrain</th>
+<th>Select</th><th>Car Image</th><th>Car Name</th><th>Category</th><th>Drivetrain</th>
 <th>Power (HP)</th><th>Weight (Lbs.)</th><th>Acceleration</th>
 <th>Braking</th><th>Cornering</th><th>Stability</th>
 </tr></thead></table></html>';
