@@ -45,44 +45,7 @@
     </thead>
     <tbody>
         <tr>
-            <?php
-            /**
-             * Created by PhpStorm.
-             * User: 100554361
-             * Date: 1/23/2019
-             * Time: 6:41 PM
-             */
-            // attempt to connect to db
-            $mysqli = new mysqli("localhost",
-                "phpmyadmin", "ddw6991", "assignment1");
 
-            // check connection
-            if ($mysqli->connect_errno) {
-                printf("Connect failed: %s\n", $mysqli->connect_error);
-                exit();
-            }
-
-            $query = "SELECT * FROM GlobalCars";
-            // retreive global car table
-            if ($result = $mysqli->query($query)){
-                $rowNumber = 0;
-                // fetch rows
-                while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-                    echo '<html lang="en-US"><form action="<?php echo $_SERVER[\'PHP_SELF\']; ?>" method="POST">
-<input type="checkbox" name="<?php $rowNumber; ?>">
-</form><img src=' . $row["car image"] . ' alt=' .
-                        $row["car name"] . '></html>';
-                    printf ("Car Name: %s  Cat.: %s  Drivetrain: %s  HP: %s  Lbs.: %s
-            Speed: %Accel.: %s  Braking: %s  Cornering: %s  Stability: %s",
-                        $row["car name"], $row["category"], $row["drivetrain"],
-                        $row["power"], $row["weight"], $row["acceleration"], $row["braking"],
-                        $row["cornering"], $row["stability"]);
-                }
-                $result->close();
-            }
-
-
-            ?>
         </tr>
     </tbody>
     <tfoot>
@@ -105,3 +68,41 @@
 </table>
 </body>
 </html>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 100554361
+ * Date: 1/23/2019
+ * Time: 6:41 PM
+ */
+// attempt to connect to db
+$mysqli = new mysqli("localhost",
+    "phpmyadmin", "ddw6991", "assignment1");
+
+// check connection
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+
+$query = "SELECT * FROM GlobalCars";
+// retreive global car table
+if ($result = $mysqli->query($query)){
+    $rowNumber = 0;
+    // fetch rows
+    while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+        echo '<html lang="en-US"><form action="<?php echo $_SERVER[\'PHP_SELF\']; ?>" method="POST">
+<input type="checkbox" name="<?php $rowNumber; ?>">
+</form><img src=' . $row["car image"] . ' alt=' .
+            $row["car name"] . '></html>';
+        printf ("Car Name: %s  Cat.: %s  Drivetrain: %s  HP: %s  Lbs.: %s
+            Speed: %Accel.: %s  Braking: %s  Cornering: %s  Stability: %s",
+            $row["car name"], $row["category"], $row["drivetrain"],
+            $row["power"], $row["weight"], $row["acceleration"], $row["braking"],
+            $row["cornering"], $row["stability"]);
+    }
+    $result->close();
+}
+
+
+?>
