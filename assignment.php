@@ -20,6 +20,7 @@
         </tr>
     </tbody>
 <?php
+include 'style.css';
 /**
  * Created by PhpStorm.
  * User: 100554361
@@ -44,10 +45,6 @@ if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
 
 
 ?>
-</table>
-<table>
-    <thead>
-    </thead>
 </table>
 </body>
 </html>
