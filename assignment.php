@@ -95,17 +95,18 @@ if ($result = $mysqli->query($query)){
 <th class="rotate"><div><span>Braking</span></div></th>
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
-</tr></thead></table></html>';
+</tr></thead>';
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><table><tbody><tr>
+        echo '<html lang="en-US"><tbody><tr>
 <td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
-</tr></tbody></table></html>';
+</tr></tbody>';
     }
+    echo '</table></html>';
     $result->close();
 }
 
