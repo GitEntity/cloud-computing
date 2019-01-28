@@ -85,7 +85,6 @@ $query = "SELECT * FROM GlobalCars";
 if ($result = $mysqli->query($query)){
     echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
-<th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>
 <th class="rotate"><div><span>Category</span></div></th>
 <th class="rotate"><div><span>Drivetrain</span></div></th>

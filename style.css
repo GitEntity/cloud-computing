@@ -11,10 +11,6 @@ thead {
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
 }
 
-td.button{
-    font-family: "Lucida Console", Monaco;
-}
-
 td{
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
     text-align: justify;
@@ -33,7 +29,7 @@ th.rotate > div {
             translate(25px, 51px)
                 /* 45 is really 360 - 45 */
             rotate(315deg);
-    width: 35px;
+    width: 30px;
 }
 th.rotate > div > span {
     border-bottom: 1px solid #ccc;
