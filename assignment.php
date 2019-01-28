@@ -83,7 +83,7 @@ if ($mysqli->connect_errno) {
 $query = "SELECT * FROM GlobalCars";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
-    echo '<html lang="en-US"><table class="left"><thead><tr>
+    echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>
@@ -98,7 +98,7 @@ if ($result = $mysqli->query($query)){
 </tr></thead></table></html>';
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><table class="left"><tbody><tr>
+        echo '<html lang="en-US"><table><tbody><tr>
 <td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
@@ -113,7 +113,7 @@ if (isset($POST_["create new garage"])){
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS tempCars";
     if ($result = $mysqli->query($tempQuery)){
-        echo '<html lang="en-US"><table class="right"><thead><tr>
+        echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>

@@ -33,6 +33,8 @@ form.right{
 
 td{
     font-family: "Lucida Console", Monaco;
+    text-align: justify;
+    padding: 5px;
 }
 
 th.rotate {
