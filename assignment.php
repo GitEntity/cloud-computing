@@ -39,8 +39,8 @@
 <table>
     <thead>
         <tr>
-            <th>Your Garage</th>
             <th>All Cars</th>
+            <th>Your Garage</th>
         </tr>
     </thead>
     <tfoot>

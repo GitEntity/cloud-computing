@@ -10,3 +10,7 @@ thead {
     font-size: large;
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
 }
+
+table {
+    table-layout: auto;
+}
