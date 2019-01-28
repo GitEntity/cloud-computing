@@ -101,5 +101,28 @@ if ($result = $mysqli->query($query)){
     $result->close();
 }
 
+if (isset($POST_["create new garage"])){
+    // create garage (temporary db table)
+    $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS tempCars";
+}
+elseif (isset($_POST["delete garage"])){
+    // delete garage
+}
 
+if (isset($_POST["add to garage"])) {
+    if (!empty($_POST["rowNumber"])) {
+        // add selected cars to temporary db
+        foreach($_POST["rowNumber"] as $rowNumber){
+
+            // select cars from temporary db and display
+        }
+    }
+}
+elseif (isset($_POST["remove from garage"])) {
+    // remove selected cars from garage
+}
+
+if (isset($_POST["compare"])){
+    // compare selected cars
+}
 ?>

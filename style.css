@@ -14,3 +14,7 @@ thead {
 table {
     table-layout: auto;
 }
+
+td{
+    font-family: "Lucida Console", Monaco;
+}
