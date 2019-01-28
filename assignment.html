@@ -44,6 +44,23 @@ if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
 
 
 ?>
+    <tfoot>
+        <tr>
+            <td>
+                <form>
+                    <input type="submit" value="Remove from Garage">
+                    <input type="submit" value="Compare Cars">
+                    <input type="submit" value="Delete Garage">
+                </form>
+            </td>
+            <td>
+                <form>
+                    <input type="submit" value="Add to Garage">
+                    <input type="submit" value="Create New Garage">
+                </form>
+            </td>
+        </tr>
+    </tfoot>
 </table>
 </body>
 </html>
