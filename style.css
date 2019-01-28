@@ -26,11 +26,11 @@ tbody{
 }
 
 td.left{
-    float: left;
+    text-align: left;
 }
 
 td.right{
-    float: right;
+    text-align: right;
 }
 
 th.rotate {
