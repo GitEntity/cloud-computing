@@ -5,6 +5,20 @@
     <title>Virtual Car Garage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
+<body>
+<h1>Virtual Car Garage</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Your Garage</th>
+            <th>All Cars</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+        </tr>
+    </tbody>
 <?php
 /**
  * Created by PhpStorm.
@@ -30,8 +44,10 @@ if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
 
 
 ?>
+</table>
 <table>
     <thead>
     </thead>
 </table>
+</body>
 </html>

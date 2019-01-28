@@ -1,5 +1,9 @@
-title {
+h1 {
     color: darkgreen;
     text-align: center;
-    font-size: large;
+}
+
+thead {
+    color: blue;
+    text-align: center;
 }
