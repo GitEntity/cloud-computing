@@ -83,21 +83,20 @@ if ($mysqli->connect_errno) {
 $query = "SELECT * FROM GlobalCars";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
+    echo '<html lang="en-US"><table><thead><tr>
+<th>Select</th><th>Car Name</th><th>Category</th><th>Drivetrain</th>
+<th>Power (HP)</th><th>Weight (Lbs.)</th><th>Acceleration</th>
+<th>Braking</th><th>Cornering</th><th>Stability</th>
+</tr></thead></table></html>';
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><table><thead><tr>
-<td>Car Name</td><td>Category</td><td>Drivetrain</td>
-<td>Power</td><td>Weight</td><td>Acceleration</td>
-<td>Braking</td><td>Cornering</td><td>Stability</td>
-</tr></thead>
-<tbody><tr>
-<td><form method="POST">
-<input type="checkbox" name="rowNumber[]"></form></td>
+        echo '<html lang="en-US"><table><tbody><tr>
+<td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
+<td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
-</tr></tbody></table><img src=' . $row["car image"] . ' alt=' .
-            $row["car name"] . '></html>';
+</tr></tbody></table></html>';
     }
     $result->close();
 }
