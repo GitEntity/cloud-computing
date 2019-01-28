@@ -45,14 +45,14 @@
     </thead>
     <tfoot>
     <tr>
-        <td>
-            <form class="left" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <td class="left">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
-        <td>
-            <form class="right" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <td class="right">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
                 <button class="button-success pure-button" name="compare">Compare</button>
                 <button class="button-error pure-button" name="delete garage">Delete Garage</button>

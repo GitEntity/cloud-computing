@@ -15,26 +15,22 @@ table {
     table-layout: auto;
 }
 
-table.left{
-    float: left;
-}
-
-table.right{
-    float: right;
-}
-
-form.left{
-    float: left;
-}
-
-form.right{
-    float: right;
-}
-
-td{
+td.button{
     font-family: "Lucida Console", Monaco;
+}
+
+tbody{
+    font-family: "Trebuchet MS", Helvetica, Sans-serif;
     text-align: justify;
     padding: 5px;
+}
+
+td.left{
+    float: left;
+}
+
+td.right{
+    float: right;
 }
 
 th.rotate {
