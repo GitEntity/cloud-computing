@@ -85,9 +85,18 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
+$query = "SELECT * FROM GlobalCars";
 // retreive global car table
-if ($result = $mysqli->query("SELECT * FROM GlobalCars", MYSQLI_STORE_RESULT)){
-    print($result);
+if ($result = $mysqli->query($query)){
+    // fetch rows
+    while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+        echo '<img src=' . $row["car image"] . ' alt=' . $row["car name"] . '';
+        printf ("Car Name: %s  Cat.: %s  Drivetrain: %s  HP: %s  Lbs.: %s
+            Speed: %Accel.: %s  Braking: %s  Cornering: %s  Stability: %s",
+            $row["car name"], $row["category"], $row["drivetrain"],
+            $row["power"], $row["weight"], $row["acceleration"], $row["braking"],
+            $row["cornering"], $row["stability"]);
+    }
     $result->close();
 }
 
