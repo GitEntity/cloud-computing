@@ -90,7 +90,8 @@ $query = "SELECT * FROM GlobalCars";
 if ($result = $mysqli->query($query)){
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<img src=' . $row["car image"] . ' alt=' . $row["car name"] . '';
+        echo '<html lang="en-US"><img src=' . $row["car image"] . ' alt=' .
+            $row["car name"] . '></html>';
         printf ("Car Name: %s  Cat.: %s  Drivetrain: %s  HP: %s  Lbs.: %s
             Speed: %Accel.: %s  Braking: %s  Cornering: %s  Stability: %s",
             $row["car name"], $row["category"], $row["drivetrain"],
