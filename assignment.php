@@ -46,13 +46,13 @@
     <tfoot>
     <tr>
         <td>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form class="left" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
         <td>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form class="right" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
                 <button class="button-success pure-button" name="compare">Compare</button>
                 <button class="button-error pure-button" name="delete garage">Delete Garage</button>
@@ -83,14 +83,22 @@ if ($mysqli->connect_errno) {
 $query = "SELECT * FROM GlobalCars";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
-    echo '<html lang="en-US"><table><thead><tr>
-<th>Select</th><th>Car Image</th><th>Car Name</th><th>Category</th><th>Drivetrain</th>
-<th>Power (HP)</th><th>Weight (Lbs.)</th><th>Acceleration</th>
-<th>Braking</th><th>Cornering</th><th>Stability</th>
+    echo '<html lang="en-US"><table class="left"><thead><tr>
+<th class="rotate"><div><span>Select</span></div></th>
+<th class="rotate"><div><span>Car Image</span></div></th>
+<th class="rotate"><div><span>Car Name</span></div></th>
+<th class="rotate"><div><span>Category</span></div></th>
+<th class="rotate"><div><span>Drivetrain</span></div></th>
+<th class="rotate"><div><span>Power (HP)</span></div></th>
+<th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
+<th class="rotate"><div><span>Acceleration</span></div></th>
+<th class="rotate"><div><span>Braking</span></div></th>
+<th class="rotate"><div><span>Cornering</span></div></th>
+<th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead></table></html>';
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><table><tbody><tr>
+        echo '<html lang="en-US"><table class="left"><tbody><tr>
 <td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
@@ -104,6 +112,21 @@ if ($result = $mysqli->query($query)){
 if (isset($POST_["create new garage"])){
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS tempCars";
+    if ($result = $mysqli->query($tempQuery)){
+        echo '<html lang="en-US"><table class="right"><thead><tr>
+<th class="rotate"><div><span>Select</span></div></th>
+<th class="rotate"><div><span>Car Image</span></div></th>
+<th class="rotate"><div><span>Car Name</span></div></th>
+<th class="rotate"><div><span>Category</span></div></th>
+<th class="rotate"><div><span>Drivetrain</span></div></th>
+<th class="rotate"><div><span>Power (HP)</span></div></th>
+<th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
+<th class="rotate"><div><span>Acceleration</span></div></th>
+<th class="rotate"><div><span>Braking</span></div></th>
+<th class="rotate"><div><span>Cornering</span></div></th>
+<th class="rotate"><div><span>Stability</span></div></th>
+</tr></thead></table></html>';
+    }
 }
 elseif (isset($_POST["delete garage"])){
     // delete garage
