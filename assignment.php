@@ -128,7 +128,7 @@ if (isset($POST_["create new garage"])){
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
     if ($result = $mysqli->query($tempQuery)){
-     echo "hello";
+        echo "<script type='text/javascript'>alert('hello');</script>";
         $result->close();
     }
 }
