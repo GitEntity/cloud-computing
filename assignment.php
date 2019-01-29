@@ -126,15 +126,27 @@ if (isset($POST_["create new garage"])){
 `cornering` decimal(2,1) DEFAULT NULL,
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    if ($result = $mysqli->query($tempQuery)){
-        echo "<script type='text/javascript'>alert('hello');</script>";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+    
+        echo '<html lang="en-US"><table><thead><tr>
+<th class="rotate"><div><span>Select</span></div></th>
+<th class="rotate"><div><span>Car Image</span></div></th>
+<th class="rotate"><div><span>Car Name</span></div></th>
+<th class="rotate"><div><span>Category</span></div></th>
+<th class="rotate"><div><span>Drivetrain</span></div></th>
+<th class="rotate"><div><span>Power (HP)</span></div></th>
+<th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
+<th class="rotate"><div><span>Acceleration</span></div></th>
+<th class="rotate"><div><span>Braking</span></div></th>
+<th class="rotate"><div><span>Cornering</span></div></th>
+<th class="rotate"><div><span>Stability</span></div></th>
+</tr></thead>';
         $result->close();
-    }
+
 }
 elseif (isset($_POST["delete garage"])){
     // delete garage
-    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
+    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars";
     if ($result = $mysqli->query($tempQuery)){
         echo '<tfoot><tr><td>Garage deleted</td></tr></tfoot></table></html>';
         $result->close();
