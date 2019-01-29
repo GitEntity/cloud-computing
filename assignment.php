@@ -120,10 +120,22 @@ if ($result = $mysqli->query($query)){
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["speed"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
+        $tmp_object = new stdClass();
+        $tmp_object->car_name = $row["car name"];
+        $tmp_object->category = $row["category"];
+        $tmp_object->power = $row["power"];
+        $tmp_object->acceleration = $row["acceleration"];
+        $tmp_object->drivetrain = $row["drivetrain"];
+        $tmp_object->weight = $row["weight"];
+        $tmp_object->speed = $row["speed"];
+        $tmp_object->braking = $row["braking"];
+        $tmp_object->cornering = $row["cornering"];
+        $tmp_object->stability = $row["stability"];
 
+        array_push($allCars, $temp_object);
         // js json object
-        $allCars[] = $row;
     }
+    
     echo '</table></html>';
     $result->close();
 }
