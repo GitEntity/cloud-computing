@@ -47,16 +47,18 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" action="<?php echo $_SERVER['index.php'];?>">
-                <button type="submit" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button type="submit" class="button-success pure-button" name="create new garage">Create New Garage</button>
+            <form method="POST">
+                <button type="button" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
+                <button type="button" class="button-success pure-button" name="create new garage">Create New
+                    Garage</button>
             </form>
         </td>
         <td class="pad">
             <form method="POST">
-                <button type="submit" class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
-                <button type="submit" class="button-success pure-button" name="compare">Compare</button>
-                <button type="submit" class="button-error pure-button" name="delete garage">Delete Garage</button>
+                <button type="button" class="button-warning pure-button" name="remove from garage">Remove from
+                    Garage</button>
+                <button type="button" class="button-success pure-button" name="compare">Compare</button>
+                <button type="button" class="button-error pure-button" name="delete garage">Delete Garage</button>
             </form>
         </td>
     </tr>
@@ -127,9 +129,9 @@ if (isset($POST_["create new garage"])){
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    if ($result = $mysqli->query($tempQuery)){
-        echo '<h1>hello world<h1>';
-        echo '<html lang="en-US"><table><thead><tr>
+    $mysqli->query($tempQuery);
+    echo '<h1>hello world<h1>';
+    echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>
@@ -144,7 +146,7 @@ PRIMARY KEY (`car name`)
 </tr></thead>';
         $result->close();
     }
-}
+
 elseif (isset($_POST["delete garage"])){
     // delete garage
     $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
