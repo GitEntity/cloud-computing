@@ -8,7 +8,8 @@
 
 include "connection.php";
 if(isset($_GET['query'])){
-$query = "SELECT * FROM GlobalCars `car name` LIKE %"+query+"%";
+    $searchQuery = $_GET['query'];
+$query = "SELECT * FROM GlobalCars `car name` LIKE %"+$searchQuery+"%";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
     echo '<html lang="en-US"><table id="main_table"><thead><tr>
