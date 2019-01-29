@@ -106,6 +106,7 @@ if ($result = $mysqli->query($query)){
 <th class="rotate"><div><span>Drivetrain</span></div></th>
 <th class="rotate"><div><span>Power (HP)</span></div></th>
 <th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
+<th class="rotate"><div><span>Speed</span></div></th>
 <th class="rotate"><div><span>Acceleration</span></div></th>
 <th class="rotate"><div><span>Braking</span></div></th>
 <th class="rotate"><div><span>Cornering</span></div></th>
@@ -118,7 +119,7 @@ if ($result = $mysqli->query($query)){
 <td><form method="POST" id="allCars"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
-<td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
+<td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["speed"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
         $allCars[] = $row;
@@ -154,6 +155,7 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Drivetrain</span></div></th>
 <th class="rotate"><div><span>Power (HP)</span></div></th>
 <th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
+<th class="rotate"><div><span>Speed</span></div></th>
 <th class="rotate"><div><span>Acceleration</span></div></th>
 <th class="rotate"><div><span>Braking</span></div></th>
 <th class="rotate"><div><span>Cornering</span></div></th>
