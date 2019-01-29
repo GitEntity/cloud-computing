@@ -47,21 +47,21 @@
     <tfoot>
     <tr>
         <td>
-            <form method="get" id="yourGarage">
-                <button type="button" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button formmethod="get" type="submit" id="yourGarage" class="button-success pure-button" name="create
-                new
-                garage">Create
-                    New
-                    Garage</button>
+            <form method="POST" id="yourGarage">
+                <button type="button" id="yourGarage" class="button-secondary pure-button"
+                        name="addToGarage">Add to Garage</button>
+                <button type="button" id="yourGarage" class="button-success pure-button"
+                        name="createNewGarage">Create New Garage</button>
             </form>
         </td>
         <td class="pad">
-            <form method="POST">
-                <button type="button" class="button-warning pure-button" name="remove from garage">Remove from
-                    Garage</button>
-                <button type="button" class="button-success pure-button" name="compare">Compare</button>
-                <button type="button" class="button-error pure-button" name="delete garage">Delete Garage</button>
+            <form method="POST" id="allCars">
+                <button type="button" id="allCars" class="button-warning pure-button"
+                        name="removeFromGarage">Remove from Garage</button>
+                <button type="button" id="allCars" class="button-success pure-button"
+                        name="compare">Compare</button>
+                <button type="button" id="allCars" class="button-error pure-button"
+                        name="deleteGarage">Delete Garage</button>
             </form>
         </td>
     </tr>
@@ -105,7 +105,7 @@ if ($result = $mysqli->query($query)){
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
         echo '<html lang="en-US"><tbody><tr class="border">
-<td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
+<td><form method="POST" id="allCars"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
@@ -116,7 +116,7 @@ if ($result = $mysqli->query($query)){
     $result->close();
 }
 
-if (isset($GET_["create new garage"])){
+if (isset($POST_["createNewGarage"])){
     echo '<html lang="en-US"><h1>hello world</h1></html>';
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
@@ -150,7 +150,7 @@ PRIMARY KEY (`car name`)
         $result->close();
 }
 
-elseif (isset($_POST["delete garage"])){
+elseif (isset($_POST["deleteGarage"])){
     // delete garage
     $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
     if ($result = $mysqli->query($tempQuery)){
@@ -159,7 +159,7 @@ elseif (isset($_POST["delete garage"])){
     }
 }
 
-if (isset($_POST["add to garage"])) {
+if (isset($_POST["addToGarage"])) {
     if (!empty($_POST["rowNumber"])) {
         // add selected cars to garage
 
@@ -169,7 +169,7 @@ if (isset($_POST["add to garage"])) {
         }
     }
 }
-elseif (isset($_POST["remove from garage"])) {
+elseif (isset($_POST["removeFromGarage"])) {
     // remove selected cars from garage
 }
 
