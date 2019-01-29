@@ -7,14 +7,13 @@
  */
 
 include "connection.php";
-print_r($_GET);
+
 
 if(isset($_GET['query'])){
     $searchQuery = $_GET['query'];
-    print_r($_GET);
     print($searchQuery);
 
-    $query = 'SELECT * FROM GlobalCars `car name` LIKE "%'.$searchQuery.'%"';
+    $query = 'SELECT * FROM `GlobalCars` WHERE `car name` LIKE \"%'.$searchQuery.'%\"\'';
     print($query);
 // retrieve global car table
 if ($result = $mysqli->query($query)){
