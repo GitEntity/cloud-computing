@@ -145,7 +145,11 @@ if (isset($POST_["createNewGarage"])){
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+
+    // execute query
     mysqli_query($tempQuery);
+
+    // print html headers
     echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
@@ -160,7 +164,6 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead></table></html>';
-        //$result->close();
 }
 
 elseif (isset($_POST["deleteGarage"])){

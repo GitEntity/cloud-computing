@@ -29,58 +29,44 @@ $(document).ready(function () {
                 datasets: [
                     {
                         label: 'Power (HP)',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgb(255, 99, 132)',
                         data: power
                     },
                     {
                         label: 'Weight (Lbs.)',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: 'rgb(255, 159, 64)',
                         data: power
                     },
                     {
                         label: 'Speed',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(255, 205, 86, 0.2)',
+                        borderColor: 'rgb(255, 205, 86)',
                         data: speed
                     },
                     {
                         label: 'Acceleration',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgb(75, 192, 192)',
                         data: acceleration
                     },
                     {
                         label: 'Braking',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgb(54, 162, 235)',
                         data: braking
                     },
                     {
                         label: 'Cornering',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgb(153, 102, 255)',
                         data: cornering
                     },
                     {
                         label: 'Stability)',
-                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
-                        borderColor: 'rgba(200, 200, 200, 0.75)',
-                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        backgroundColor: 'rgba(201, 203, 207, 0.2)',
+                        borderColor: 'rgb(201, 203, 207)',
                         data: stability
                     }
                 ]
