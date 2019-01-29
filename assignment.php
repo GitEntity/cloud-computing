@@ -53,7 +53,7 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" id="yourGarage">
+            <form method="POST" id="yourGarage" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <button type="button" id="yourGarage" class="button-secondary pure-button"
                         name="addToGarage">Add to Garage</button>
                 <button type="button" id="yourGarage" class="button-success pure-button"
@@ -61,7 +61,7 @@
             </form>
         </td>
         <td class="pad">
-            <form method="POST" id="allCars">
+            <form method="POST" id="allCars" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <button type="button" id="allCars" class="button-warning pure-button"
                         name="removeFromGarage">Remove from Garage</button>
                 <button type="button" id="allCars" class="button-success pure-button"
@@ -116,7 +116,7 @@ if ($result = $mysqli->query($query)){
     $allCars = array();
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
         echo '<html lang="en-US"><tbody><tr class="border">
-<td><form method="POST" id="allCars"><input type="checkbox" name="rowNumber[]"></form></td>
+<td><form method="POST" id="allCars" action="<?php echo $_SERVER[\'PHP_SELF\']; ?>"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["speed"].'</td><td>'.$row["acceleration"].'</td>
@@ -145,7 +145,7 @@ if (isset($POST_["createNewGarage"])){
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $mysqli->query($tempQuery);
+    mysqli_query($tempQuery);
     echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
@@ -160,7 +160,7 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead></table></html>';
-        $result->close();
+        //$result->close();
 }
 
 elseif (isset($_POST["deleteGarage"])){

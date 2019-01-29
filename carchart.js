@@ -14,7 +14,7 @@ $(document).ready(function () {
             var stability = [];
 
             for (var i in data){
-                //carName.push(data[i]);
+                carName.pushdata[i]["car name"];
                 power.push(data[i].power);
                 weight.push(data[i].weight);
                 speed.push(data[i].speed);
@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
 
             var chartdata = {
-                labels: weight,
+                labels: carName,
                 datasets: [
                     {
                         label: 'Power (HP)',
