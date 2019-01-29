@@ -25,15 +25,63 @@ $(document).ready(function () {
             }
 
             var chartdata = {
-                labels: carName,
+                labels: [power, weight, speed, acceleration, braking, cornering, stability],
                 datasets: [
                     {
                         label: 'Power (HP)',
                         backgroundColor: 'rgba(200, 200, 200, 0.75)',
                         borderColor: 'rgba(200, 200, 200, 0.75)',
                         hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-                        hoverBorderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
                         data: power
+                    },
+                    {
+                        label: 'Weight (Lbs.)',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: power
+                    },
+                    {
+                        label: 'Speed',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: speed
+                    },
+                    {
+                        label: 'Acceleration',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: acceleration
+                    },
+                    {
+                        label: 'Braking',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: braking
+                    },
+                    {
+                        label: 'Cornering',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: cornering
+                    },
+                    {
+                        label: 'Stability)',
+                        backgroundColor: 'rgba(200, 200, 200, 0.75)',
+                        borderColor: 'rgba(200, 200, 200, 0.75)',
+                        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                        hoverBorderColor: 'rgba(200, 200, 200, 0.1)',
+                        data: stability
                     }
                 ]
             };
@@ -41,7 +89,10 @@ $(document).ready(function () {
 
             var barGraph = new Chart(ctx, {
                 type: 'bar',
-                data: chartdata
+                data: chartdata,
+                options: {
+                    barPercentage: 0.1
+                }
             });
         },
         error: function(data) {

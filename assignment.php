@@ -114,7 +114,7 @@ if ($result = $mysqli->query($query)){
 </tr></thead>';
     // fetch rows
     $allCars = array();
-    while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         echo '<html lang="en-US"><tbody><tr class="border">
 <td><form method="POST" id="allCars" action="<?php echo $_SERVER[\'PHP_SELF\']; ?>"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
