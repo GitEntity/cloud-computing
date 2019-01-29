@@ -11,6 +11,8 @@ $(document).ready(function () {
             url: "http://3.86.186.255/cloud-computing/search.php?query="+query,
             method: "GET",
             success: function (res) {
+                $("#resultTable").clear()
+                $("#resultTable").append("<h2>Search Results</h2>");
                 $("#resultTable").append(res);
             }
     });});
