@@ -48,18 +48,15 @@
     <tr>
         <td>
             <form method="POST">
-                <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button class="button-success pure-button" name="A">Create New Garage</button>
-            </form>
-            <form action="index.php" method="get">
-                <input type="submit" name="someAction" value="GO" />
+                <button type="submit" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
+                <button type="submit" class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
         <td class="pad">
             <form method="POST">
-                <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
-                <button class="button-success pure-button" name="compare">Compare</button>
-                <button class="button-error pure-button" name="delete garage">Delete Garage</button>
+                <button type="submit" class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
+                <button type="submit" class="button-success pure-button" name="compare">Compare</button>
+                <button type="submit" class="button-error pure-button" name="delete garage">Delete Garage</button>
             </form>
         </td>
     </tr>
@@ -84,7 +81,7 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$query = "SELECT * FROM GlobalCars";
+$query = "SELECT * FROM GlobalCars;";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
     echo '<html lang="en-US"><table><thead><tr>
@@ -114,9 +111,8 @@ if ($result = $mysqli->query($query)){
     $result->close();
 }
 
-if (isset($GET_["someAction"])){
+if (isset($POST_["create new garage"])){
     // create garage (temporary db table)
-    echo "ahjkpasfghjkl";
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
 `car name` varchar(55) NOT NULL,
 `car image` varchar(67) DEFAULT NULL,
@@ -130,8 +126,8 @@ if (isset($GET_["someAction"])){
 `cornering` decimal(2,1) DEFAULT NULL,
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8";
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+    if ($result = $mysqli->query($tempQuery)){
         echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
@@ -145,13 +141,12 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead>';
-    echo "<script type='text/javascript'>alert('$msg');</script>";
         $result->close();
-
+    }
 }
 elseif (isset($_POST["delete garage"])){
     // delete garage
-    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars";
+    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
     if ($result = $mysqli->query($tempQuery)){
         echo '<tfoot><tr><td>Garage deleted</td></tr></tfoot></table></html>';
         $result->close();
