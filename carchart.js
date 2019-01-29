@@ -91,7 +91,8 @@ $(document).ready(function () {
                 type: 'bar',
                 data: chartdata,
                 options: {
-                    barPercentage: 0.1
+                    barPercentage: 0.01,
+                    beginAtZero: true
                 }
             });
         },
