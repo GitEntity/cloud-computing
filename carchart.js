@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#yourGarage").click(function(){
-        var main = $('#main_table').find('input[type="checkbox"]:checked');
+        var main = $('#main_table').find('input[type="checkbox"]:checked').closest("tr");
         console.log(main);
     })
 
