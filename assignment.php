@@ -114,7 +114,7 @@ if ($result = $mysqli->query($query)){
 }
 
 if (isset($POST_["create new garage"])){
-    echo '<html lang="en-US"><h1>hello world</h1></html>>';
+    echo '<html lang="en-US"><h1>hello world</h1></html>';
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
 `car name` varchar(55) NOT NULL,
