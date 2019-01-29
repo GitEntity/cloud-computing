@@ -45,7 +45,7 @@
     </thead>
     <tfoot>
     <tr>
-        <td class="pad">
+        <td>
             <form method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button class="button-success pure-button" name="create new garage">Create New Garage</button>
