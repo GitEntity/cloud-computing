@@ -1,9 +1,8 @@
 $(document).ready(function () {
-/*
      $('#main_table').find('input[type="checkbox"]:checked').each(function(){
 
 
-     });*/
+     });
     $.ajax({
         url: "http://3.86.186.255/index.php",
         method: "GET",
@@ -82,7 +81,7 @@ $(document).ready(function () {
                 type: 'bar',
                 data: chartdata,
                 options: {
-                    barPercentage: 0.01,
+                    barPercentage: 0.1,
                     beginAtZero: true
                 }
             });

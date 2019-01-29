@@ -6,8 +6,6 @@
  * Time: 1:51 PM
  */
 
-include "assignment.php";
-
 if (isset($_POST["addToGarage"])) {
     if (!empty($_POST["rowNumber"])) {
         // add selected cars to garage
