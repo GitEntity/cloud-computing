@@ -15,6 +15,7 @@ if(isset($_GET['query'])){
     print($searchQuery);
 
     $query = 'SELECT * FROM GlobalCars `car name` LIKE "%'+$searchQuery+'%"';
+    print($query);
 // retrieve global car table
 if ($result = $mysqli->query($query)){
     echo '<html lang="en-US"><table id="main_table"><thead><tr>
