@@ -121,12 +121,12 @@ if ($result = $mysqli->query($query)){
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
-        $allCars = $row;
+        $allCars[] = $row;
     }
     echo '</table></html>';
     $result->close();
+    print json_encode($allCars);
 }
-print json_encode($allCars);
 
 if (isset($POST_["createNewGarage"])){
     echo '<html lang="en-US"><h1>hello world</h1></html>';
