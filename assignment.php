@@ -53,7 +53,7 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" id="yourGarage">
+            <form id="yourGarage">
                 <button type="submit" id="yourGarage" class="button-secondary pure-button"
                         name="addToGarage" >Add to Garage</button>
                 <button type="submit" id="yourGarage" class="button-success pure-button"
