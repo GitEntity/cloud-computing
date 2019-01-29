@@ -49,7 +49,7 @@
         <td>
             <form method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button class="button-success pure-button" name="create new garage">Create New Garage</button>
+                <button class="button-success pure-button" name="A">Create New Garage</button>
             </form>
         </td>
         <td class="pad">
@@ -111,7 +111,7 @@ if ($result = $mysqli->query($query)){
     $result->close();
 }
 
-if (isset($POST_["create new garage"])){
+if (isset($POST_["A"])){
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
 `car name` varchar(55) NOT NULL,
@@ -127,7 +127,7 @@ if (isset($POST_["create new garage"])){
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    
+
         echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
