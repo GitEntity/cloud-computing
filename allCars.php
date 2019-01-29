@@ -1,15 +1,19 @@
+
 <?php
+
 include "connection.php";
 
+//Gets all data for Memes Table
 $query = "SELECT * FROM GlobalCars;";
 
-if ($result = $mysqli->query($query)){
-    // js json object
-    $allCars = array();
+$result = $conn->query($query);
 
-    // fetch rows
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        $tmp_object = new stdClass();
+
+//Adds the data to a array
+$allCars = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+         $tmp_object = new stdClass();
         $tmp_object->car_name = $row["car name"];
         $tmp_object->category = $row["category"];
         $tmp_object->power = $row["power"];
@@ -23,6 +27,16 @@ if ($result = $mysqli->query($query)){
 
         array_push($allCars, $temp_object);
 }
-    echo json_encode($allCars);
+    
+} else {
+    echo "0 results";
 }
+header("Content-type: application/json");
+
+
+//outputs the JSON Object
+echo json_encode($allCars);
+
+
+
 ?>
