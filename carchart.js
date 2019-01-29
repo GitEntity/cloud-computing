@@ -29,7 +29,7 @@ $(document).ready(function () {
                 stability.push(data[i].stability);
             }
 
-            var powerchart = {
+            var chartdata = {
                 labels: [power, weight, speed, acceleration, braking, cornering, stability],
                 datasets: [
                     {
