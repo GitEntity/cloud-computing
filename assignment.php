@@ -4,7 +4,12 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
           integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
           crossorigin="anonymous">
-    <style>
+    <style type="text/css">
+        #chart-container {
+            width: 640px;
+            height: auto;
+        }
+
         .button-success,
         .button-error,
         .button-warning,
@@ -32,8 +37,9 @@
     </style>
     <link rel="stylesheet" type="text/css" href="/cloud-computing/style.css">
     <title>Virtual Car Garage</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script type="text/javascript" src="/cloud-computing/carchart.js"></script>
 </head>
 <body>
 <h1>Virtual Car Garage</h1>
@@ -67,6 +73,9 @@
     </tr>
     </tfoot>
 </table>
+<div id="chart-container">
+    <canvas id="myCanvas"></canvas>
+</div>
 </body>
 </html>
 <?php
@@ -103,6 +112,7 @@ if ($result = $mysqli->query($query)){
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead>';
     // fetch rows
+    $allCars = array();
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
         echo '<html lang="en-US"><tbody><tr class="border">
 <td><form method="POST" id="allCars"><input type="checkbox" name="rowNumber[]"></form></td>
@@ -111,9 +121,11 @@ if ($result = $mysqli->query($query)){
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
+        $allCars = $row;
     }
     echo '</table></html>';
     $result->close();
+    print json_encode($allCars);
 }
 
 if (isset($POST_["createNewGarage"])){
@@ -176,4 +188,7 @@ elseif (isset($_POST["removeFromGarage"])) {
 if (isset($_POST["compare"])){
     // compare selected cars with Chart.js
 }
+
+// close db connection
+$mysqli->close();
 ?>
