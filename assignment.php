@@ -143,7 +143,7 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Braking</span></div></th>
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
-</tr></thead>';
+</tr></thead></table></html>';
         $result->close();
     }
 
