@@ -125,8 +125,8 @@ if ($result = $mysqli->query($query)){
     }
     echo '</table></html>';
     $result->close();
-    print json_encode($allCars);
 }
+print json_encode($allCars);
 
 if (isset($POST_["createNewGarage"])){
     echo '<html lang="en-US"><h1>hello world</h1></html>';
