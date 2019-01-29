@@ -116,6 +116,7 @@ if ($result = $mysqli->query($query)){
 
 if (isset($POST_["someAction"])){
     // create garage (temporary db table)
+    echo "<script type='text/javascript'>alert('asd');</script>";
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
 `car name` varchar(55) NOT NULL,
 `car image` varchar(67) DEFAULT NULL,
@@ -144,6 +145,7 @@ PRIMARY KEY (`car name`)
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead>';
+    echo "<script type='text/javascript'>alert('$msg');</script>";
         $result->close();
 
 }
