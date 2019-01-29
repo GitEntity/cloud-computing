@@ -62,21 +62,26 @@
             </form>
         </td>
         <td class="pad">
-            <form method="POST" id="allCars">
-                <button type="submit" id="allCars" class="button-warning pure-button"
-                        name="removeFromGarage" formaction="/cloud-computing/remove_from_garage.php">Remove from
-                    Garage</button>
-                <button type="submit" id="allCars" class="button-success pure-button"
-                        name="compare" formaction="/cloud-computing/compare.php">Compare</button>
-                <button type="submit" id="allCars" class="button-error pure-button"
-                        name="deleteGarage" formaction="/cloud-computing/delete_garage.php">Delete Garage</button>
-            </form>
+            <input id="search" type="text" placeholder="Search"/>
+            <button type="submit" id="submitSearch" class="button-warning pure-button">Search</button>
+
+            <!--            <form method="POST" id="allCars">-->
+<!--                        name="removeFromGarage" formaction="/cloud-computing/remove_from_garage.php">Remove from-->
+<!--                    Garage</button>-->
+<!--                <button type="submit" id="allCars" class="button-success pure-button"-->
+<!--                        name="compare" formaction="/cloud-computing/compare.php">Compare</button>-->
+<!--                <button type="submit" id="allCars" class="button-error pure-button"-->
+<!--                        name="deleteGarage" formaction="/cloud-computing/delete_garage.php">Delete Garage</button>-->
+<!--            </form>-->
         </td>
     </tr>
     </tfoot>
 </table>
 <div id="chart-container">
     <canvas id="myCanvas"></canvas>
+</div>
+
+<div id="resultTable">
 </div>
 </body>
 </html>
@@ -110,7 +115,6 @@ if ($result = $mysqli->query($query)){
 
     // js json object
     $allCars = array();
-
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         echo '<html lang="en-US"><tbody><tr class="border">
@@ -120,19 +124,7 @@ if ($result = $mysqli->query($query)){
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["speed"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
-        $tmp_object = new stdClass();
-        $tmp_object->car_name = $row["car name"];
-        $tmp_object->category = $row["category"];
-        $tmp_object->power = $row["power"];
-        $tmp_object->acceleration = $row["acceleration"];
-        $tmp_object->drivetrain = $row["drivetrain"];
-        $tmp_object->weight = $row["weight"];
-        $tmp_object->speed = $row["speed"];
-        $tmp_object->braking = $row["braking"];
-        $tmp_object->cornering = $row["cornering"];
-        $tmp_object->stability = $row["stability"];
 
-        array_push($allCars, $temp_object);
         // js json object
     }
     

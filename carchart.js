@@ -4,6 +4,17 @@ $(document).ready(function () {
         console.log(main);
     })
 
+    $("#submitSearch").click(function(){
+        var query = $("#search").val();
+
+        $.ajax({
+            url: "http://3.86.186.255/cloud-computing/search.php?query="+query,
+            method: "GET",
+            success: function (res) {
+                $("#resultTable").append(res);
+            }
+    })
+
     $.ajax({
         url: "http://3.86.186.255/cloud-computing/allCars.php",
         method: "GET",
