@@ -47,7 +47,7 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <form method="POST" action="<?php echo $_SERVER['index.php'];?>">
                 <button type="submit" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button type="submit" class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
