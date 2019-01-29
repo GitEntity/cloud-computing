@@ -6,8 +6,6 @@
  * Time: 1:50 PM
  */
 
-include "assignment.php";
-
 if (isset($POST_["createNewGarage"])){
     echo '<html lang="en-US"><h1>hello world</h1></html>';
     // create garage (temporary db table)

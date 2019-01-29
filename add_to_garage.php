@@ -13,7 +13,7 @@ if (isset($_POST["addToGarage"])) {
         // add selected cars to garage
 
         foreach($_POST["rowNumber"] as $rowNumber){
-
+            echo ($rowNumber);
             // select cars from garage and display
         }
     }
