@@ -47,9 +47,10 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST">
+            <form method="POST" id="yourGarage">
                 <button type="button" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button type="button" class="button-success pure-button" name="create new garage">Create New
+                <button type="button" id="yourGarage" class="button-success pure-button" name="create new garage">Create
+                    New
                     Garage</button>
             </form>
         </td>
