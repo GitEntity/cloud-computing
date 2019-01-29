@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+     $('#main_table').find('input[type="checkbox"]:checked').each(function(){
+
+
+     });
     $.ajax({
         url: "http://3.86.186.255/index.php",
         method: "GET",

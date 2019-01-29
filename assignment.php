@@ -98,7 +98,7 @@ if ($mysqli->connect_errno) {
 $query = "SELECT * FROM GlobalCars;";
 // retrieve global car table
 if ($result = $mysqli->query($query)){
-    echo '<html lang="en-US"><table><thead><tr>
+    echo '<html lang="en-US"><table id="main_table"><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>
@@ -150,7 +150,7 @@ PRIMARY KEY (`car name`)
     mysqli_query($tempQuery);
 
     // print html headers
-    echo '<html lang="en-US"><table><thead><tr>
+    echo '<html lang="en-US"><table id="temp_table"><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
 <th class="rotate"><div><span>Car Name</span></div></th>
