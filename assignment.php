@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="/cloud-computing/style.css">
     <title>Virtual Car Garage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </head>
 <body>
 <h1>Virtual Car Garage</h1>
@@ -112,7 +113,20 @@ if ($result = $mysqli->query($query)){
 
 if (isset($POST_["create new garage"])){
     // create garage (temporary db table)
-    $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS tempCars";
+    $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
+`car name` varchar(55) NOT NULL,
+`car image` varchar(67) DEFAULT NULL,
+`category` varchar(5) DEFAULT NULL,
+`drivetrain` varchar(3) DEFAULT NULL,
+`power` int(3) DEFAULT NULL,
+`weight` int(4) DEFAULT NULL,
+`speed` decimal(3,1) DEFAULT NULL,
+`acceleration` decimal(2,1) DEFAULT NULL,
+`braking` decimal(2,1) DEFAULT NULL,
+`cornering` decimal(2,1) DEFAULT NULL,
+`stability` decimal(2,1) DEFAULT NULL,
+PRIMARY KEY (`car name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8";
     if ($result = $mysqli->query($tempQuery)){
         echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
@@ -126,19 +140,26 @@ if (isset($POST_["create new garage"])){
 <th class="rotate"><div><span>Braking</span></div></th>
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
-</tr></thead></table></html>';
+</tr></thead>';
+        $result->close();
     }
 }
 elseif (isset($_POST["delete garage"])){
     // delete garage
+    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars";
+    if ($result = $mysqli->query($tempQuery)){
+        echo '<tfoot><tr><td>Garage deleted</td></tr></tfoot></table></html>';
+        $result->close();
+    }
 }
 
 if (isset($_POST["add to garage"])) {
     if (!empty($_POST["rowNumber"])) {
-        // add selected cars to temporary db
+        // add selected cars to garage
+        
         foreach($_POST["rowNumber"] as $rowNumber){
 
-            // select cars from temporary db and display
+            // select cars from garage and display
         }
     }
 }
@@ -147,6 +168,6 @@ elseif (isset($_POST["remove from garage"])) {
 }
 
 if (isset($_POST["compare"])){
-    // compare selected cars
+    // compare selected cars with Chart.js
 }
 ?>
