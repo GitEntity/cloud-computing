@@ -55,7 +55,7 @@
         <td>
             <form method="POST" id="yourGarage">
                 <button type="submit" id="yourGarage" class="button-secondary pure-button"
-                        name="addToGarage" formaction="/cloud-computing/add_to_garage.php">Add to Garage</button>
+                        name="addToGarage" >Add to Garage</button>
                 <button type="submit" id="yourGarage" class="button-success pure-button"
                         name="createNewGarage" formaction="/cloud-computing/create_garage.php">Create New
                     Garage</button>
