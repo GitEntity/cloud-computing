@@ -10,6 +10,6 @@ include "assignment.php";
 if (isset($_POST["compare"])){
     // compare selected cars with Chart.js
     //print(json_decode($allCars, true));
-    print ($allCars);
+    print ($allCars["car name"]);
 }
 ?>
