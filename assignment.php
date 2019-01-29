@@ -126,7 +126,7 @@ if (isset($POST_["create new garage"])){
 `cornering` decimal(2,1) DEFAULT NULL,
 `stability` decimal(2,1) DEFAULT NULL,
 PRIMARY KEY (`car name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
     if ($result = $mysqli->query($tempQuery)){
      echo "hello";
         $result->close();
@@ -134,7 +134,7 @@ PRIMARY KEY (`car name`)
 }
 elseif (isset($_POST["delete garage"])){
     // delete garage
-    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars";
+    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
     if ($result = $mysqli->query($tempQuery)){
         echo '<tfoot><tr><td>Garage deleted</td></tr></tfoot></table></html>';
         $result->close();
