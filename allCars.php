@@ -6,7 +6,7 @@ include "connection.php";
 //Gets all data for Memes Table
 $query = "SELECT * FROM GlobalCars;";
 
-$result = $conn->query($query);
+$result = $mysqli->query($query);
 
 
 //Adds the data to a array
@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
         $tmp_object->cornering = $row["cornering"];
         $tmp_object->stability = $row["stability"];
 
-        array_push($allCars, $temp_object);
+        array_push($allCars, $tmp_object);
 }
     
 } else {

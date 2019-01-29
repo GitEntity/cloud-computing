@@ -5,7 +5,7 @@ $(document).ready(function () {
     })
 
     $.ajax({
-        url: "http://3.86.186.255/index.php",
+        url: "http://3.86.186.255/cloud-computing/allCars.php",
         method: "GET",
         success: function (data) {
             console.log(data);
@@ -19,7 +19,7 @@ $(document).ready(function () {
             var stability = [];
 
             for (var i in data){
-                carName.push(data[i]["car name"]);
+                carName.push(data[i]["car_name"]);
                 power.push(data[i].power);
                 weight.push(data[i].weight);
                 speed.push(data[i].speed);
