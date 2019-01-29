@@ -63,7 +63,7 @@
         </td>
         <td class="pad">
             <input id="search" type="text" placeholder="Search"/>
-            <button type="submit" id="submitSearch" class="button-warning pure-button">Search</button>
+            <button type="button" id="submitSearch" class="button-warning pure-button">Search</button>
 
             <!--            <form method="POST" id="allCars">-->
 <!--                        name="removeFromGarage" formaction="/cloud-computing/remove_from_garage.php">Remove from-->

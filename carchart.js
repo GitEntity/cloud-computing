@@ -13,7 +13,7 @@ $(document).ready(function () {
             success: function (res) {
                 $("#resultTable").append(res);
             }
-    })
+    });});
 
     $.ajax({
         url: "http://3.86.186.255/cloud-computing/allCars.php",
