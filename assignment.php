@@ -47,7 +47,7 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST">
+            <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <button type="submit" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button type="submit" class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
@@ -128,6 +128,7 @@ if (isset($POST_["create new garage"])){
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
     if ($result = $mysqli->query($tempQuery)){
+        echo 'hello world';
         echo '<html lang="en-US"><table><thead><tr>
 <th class="rotate"><div><span>Select</span></div></th>
 <th class="rotate"><div><span>Car Image</span></div></th>
