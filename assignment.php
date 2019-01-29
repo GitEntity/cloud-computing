@@ -98,7 +98,7 @@ if ($result = $mysqli->query($query)){
 </tr></thead>';
     // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-        echo '<html lang="en-US"><tbody><tr>
+        echo '<html lang="en-US"><tbody><tr class="border">
 <td><form method="POST"><input type="checkbox" name="rowNumber[]"></form></td>
 <td><img src='.$row["car image"].' alt='.$row["car name"].'></td>
 <td>'.$row["car name"].'</td><td>'.$row["category"].'</td><td>'.$row["drivetrain"].'</td>

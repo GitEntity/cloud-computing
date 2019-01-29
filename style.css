@@ -11,6 +11,9 @@ thead {
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
 }
 
+tr.border{
+    border: 1px solid black;
+}
 td{
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
     text-align: justify;
