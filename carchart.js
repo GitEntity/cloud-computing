@@ -14,7 +14,7 @@ $(document).ready(function () {
             var stability = [];
 
             for (var i in data){
-                carName.pushdata[i]["car name"];
+                carName.push(data[i]["car name"]);
                 power.push(data[i].power);
                 weight.push(data[i].weight);
                 speed.push(data[i].speed);
