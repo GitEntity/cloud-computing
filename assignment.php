@@ -53,21 +53,23 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" id="yourGarage" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <button type="button" id="yourGarage" class="button-secondary pure-button"
-                        name="addToGarage">Add to Garage</button>
-                <button type="button" id="yourGarage" class="button-success pure-button"
-                        name="createNewGarage">Create New Garage</button>
+            <form method="POST" id="yourGarage">
+                <button type="submit" id="yourGarage" class="button-secondary pure-button"
+                        name="addToGarage" formaction="/cloud-computing/add_to_garage.php">Add to Garage</button>
+                <button type="submit" id="yourGarage" class="button-success pure-button"
+                        name="createNewGarage" formaction="/cloud-computing/create_garage.php">Create New
+                    Garage</button>
             </form>
         </td>
         <td class="pad">
-            <form method="POST" id="allCars" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <button type="button" id="allCars" class="button-warning pure-button"
-                        name="removeFromGarage">Remove from Garage</button>
-                <button type="button" id="allCars" class="button-success pure-button"
-                        name="compare">Compare</button>
-                <button type="button" id="allCars" class="button-error pure-button"
-                        name="deleteGarage">Delete Garage</button>
+            <form method="POST" id="allCars">
+                <button type="submit" id="allCars" class="button-warning pure-button"
+                        name="removeFromGarage" formaction="/cloud-computing/remove_from_garage.php">Remove from
+                    Garage</button>
+                <button type="submit" id="allCars" class="button-success pure-button"
+                        name="compare" formaction="/cloud-computing/compare.php">Compare</button>
+                <button type="submit" id="allCars" class="button-error pure-button"
+                        name="deleteGarage" formaction="/cloud-computing/delete_garage.php">Delete Garage</button>
             </form>
         </td>
     </tr>
@@ -112,8 +114,11 @@ if ($result = $mysqli->query($query)){
 <th class="rotate"><div><span>Cornering</span></div></th>
 <th class="rotate"><div><span>Stability</span></div></th>
 </tr></thead>';
-    // fetch rows
+
+    // js json object
     $allCars = array();
+
+    // fetch rows
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         echo '<html lang="en-US"><tbody><tr class="border">
 <td><form method="POST" id="allCars" action="<?php echo $_SERVER[\'PHP_SELF\']; ?>"><input type="checkbox" name="rowNumber[]"></form></td>
@@ -122,75 +127,12 @@ if ($result = $mysqli->query($query)){
 <td>'.$row["power"].'</td><td>'.$row["weight"].'</td><td>'.$row["speed"].'</td><td>'.$row["acceleration"].'</td>
 <td>'.$row["braking"].'</td><td>'.$row["cornering"].'</td><td>'.$row["stability"].'</td>
 </tr></tbody>';
+
+        // js json object
         $allCars[] = $row;
     }
     echo '</table></html>';
     $result->close();
-}
-
-if (isset($POST_["createNewGarage"])){
-    echo '<html lang="en-US"><h1>hello world</h1></html>';
-    // create garage (temporary db table)
-    $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
-`car name` varchar(55) NOT NULL,
-`car image` varchar(67) DEFAULT NULL,
-`category` varchar(5) DEFAULT NULL,
-`drivetrain` varchar(3) DEFAULT NULL,
-`power` int(3) DEFAULT NULL,
-`weight` int(4) DEFAULT NULL,
-`speed` decimal(3,1) DEFAULT NULL,
-`acceleration` decimal(2,1) DEFAULT NULL,
-`braking` decimal(2,1) DEFAULT NULL,
-`cornering` decimal(2,1) DEFAULT NULL,
-`stability` decimal(2,1) DEFAULT NULL,
-PRIMARY KEY (`car name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-
-    // execute query
-    mysqli_query($tempQuery);
-
-    // print html headers
-    echo '<html lang="en-US"><table id="temp_table"><thead><tr>
-<th class="rotate"><div><span>Select</span></div></th>
-<th class="rotate"><div><span>Car Image</span></div></th>
-<th class="rotate"><div><span>Car Name</span></div></th>
-<th class="rotate"><div><span>Category</span></div></th>
-<th class="rotate"><div><span>Drivetrain</span></div></th>
-<th class="rotate"><div><span>Power (HP)</span></div></th>
-<th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
-<th class="rotate"><div><span>Speed</span></div></th>
-<th class="rotate"><div><span>Acceleration</span></div></th>
-<th class="rotate"><div><span>Braking</span></div></th>
-<th class="rotate"><div><span>Cornering</span></div></th>
-<th class="rotate"><div><span>Stability</span></div></th>
-</tr></thead></table></html>';
-}
-
-elseif (isset($_POST["deleteGarage"])){
-    // delete garage
-    $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
-    if ($result = $mysqli->query($tempQuery)){
-        echo '<tfoot><tr><td>Garage deleted</td></tr></tfoot></table></html>';
-        $result->close();
-    }
-}
-
-if (isset($_POST["addToGarage"])) {
-    if (!empty($_POST["rowNumber"])) {
-        // add selected cars to garage
-
-        foreach($_POST["rowNumber"] as $rowNumber){
-
-            // select cars from garage and display
-        }
-    }
-}
-elseif (isset($_POST["removeFromGarage"])) {
-    // remove selected cars from garage
-}
-
-if (isset($_POST["compare"])){
-    // compare selected cars with Chart.js
 }
 
 // close db connection
