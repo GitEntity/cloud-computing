@@ -6,6 +6,8 @@
  * Time: 1:50 PM
  */
 
+include "connection.php";
+
 if (isset($_POST["deleteGarage"])) {
     // delete garage
     $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";

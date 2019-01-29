@@ -5,7 +5,7 @@
  * Date: 1/29/2019
  * Time: 1:52 PM
  */
-include "assignment.php";
+include "connection.php";
 
 if (isset($_POST["compare"])){
     // compare selected cars with Chart.js

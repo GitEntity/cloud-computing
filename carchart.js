@@ -1,8 +1,9 @@
 $(document).ready(function () {
-     $('#main_table').find('input[type="checkbox"]:checked').each(function(){
+    $("#yourGarage").click(function(){
+        var main = $('#main_table').find('input[type="checkbox"]:checked');
+        console.log(main);
+    })
 
-
-     });
     $.ajax({
         url: "http://3.86.186.255/index.php",
         method: "GET",

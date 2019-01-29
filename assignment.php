@@ -87,15 +87,8 @@
  * Date: 1/23/2019
  * Time: 6:41 PM
  */
-// attempt to connect to db
-$mysqli = new mysqli("localhost",
-    "phpmyadmin", "ddw6991", "assignment1");
 
-// check connection
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
-}
+include "connection.php";
 
 $query = "SELECT * FROM GlobalCars;";
 // retrieve global car table

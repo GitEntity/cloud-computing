@@ -6,6 +6,8 @@
  * Time: 1:52 PM
  */
 
+include "connection.php";
+
 if (isset($_POST["removeFromGarage"])) {
     // remove selected cars from garage
 }
