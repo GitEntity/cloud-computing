@@ -116,7 +116,7 @@ if ($result = $mysqli->query($query)){
 
 if (isset($GET_["someAction"])){
     // create garage (temporary db table)
-    echo "<script type='text/javascript'>alert('asd');</script>";
+    echo "ahjkpasfghjkl";
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
 `car name` varchar(55) NOT NULL,
 `car image` varchar(67) DEFAULT NULL,
