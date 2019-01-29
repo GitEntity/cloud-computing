@@ -25,7 +25,7 @@ $(document).ready(function () {
             }
 
             var chartdata = {
-                labels: carName,
+                labels: weight,
                 datasets: [
                     {
                         label: 'Power (HP)',
