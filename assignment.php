@@ -128,19 +128,7 @@ if (isset($POST_["create new garage"])){
 PRIMARY KEY (`car name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
     if ($result = $mysqli->query($tempQuery)){
-        echo '<html lang="en-US"><table><thead><tr>
-<th class="rotate"><div><span>Select</span></div></th>
-<th class="rotate"><div><span>Car Image</span></div></th>
-<th class="rotate"><div><span>Car Name</span></div></th>
-<th class="rotate"><div><span>Category</span></div></th>
-<th class="rotate"><div><span>Drivetrain</span></div></th>
-<th class="rotate"><div><span>Power (HP)</span></div></th>
-<th class="rotate"><div><span>Weight (Lbs.)</span></div></th>
-<th class="rotate"><div><span>Acceleration</span></div></th>
-<th class="rotate"><div><span>Braking</span></div></th>
-<th class="rotate"><div><span>Cornering</span></div></th>
-<th class="rotate"><div><span>Stability</span></div></th>
-</tr></thead>';
+     echo "hello";
         $result->close();
     }
 }
@@ -156,7 +144,7 @@ elseif (isset($_POST["delete garage"])){
 if (isset($_POST["add to garage"])) {
     if (!empty($_POST["rowNumber"])) {
         // add selected cars to garage
-        
+
         foreach($_POST["rowNumber"] as $rowNumber){
 
             // select cars from garage and display
