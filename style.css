@@ -23,7 +23,7 @@ td{
 
 td.pad{
     position: fixed;
-    padding: 300px;
+    padding-left: 50%;
 }
 
 th.rotate {
