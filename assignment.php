@@ -46,13 +46,13 @@
     <tfoot>
     <tr>
         <td>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button class="button-success pure-button" name="create new garage">Create New Garage</button>
             </form>
         </td>
-        <td>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <td class="pad">
+            <form method="POST">
                 <button class="button-warning pure-button" name="remove from garage">Remove from Garage</button>
                 <button class="button-success pure-button" name="compare">Compare</button>
                 <button class="button-error pure-button" name="delete garage">Delete Garage</button>

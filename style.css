@@ -14,10 +14,16 @@ thead {
 tr.border{
     border: 1px solid black;
 }
+
 td{
     font-family: "Trebuchet MS", Helvetica, Sans-serif;
     text-align: justify;
     padding: 0px 7px;
+}
+
+td.pad{
+    position: fixed;
+    padding: 300px;
 }
 
 th.rotate {
