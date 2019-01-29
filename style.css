@@ -22,12 +22,12 @@ td{
 }
 
 td.pad{
-    position: fixed;
+    position: absolute;
     padding-left: 50%;
 }
 
 th.pad{
-    position: fixed;
+    position: absolute;
     padding-left: 50%;
 }
 
