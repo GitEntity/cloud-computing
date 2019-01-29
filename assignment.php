@@ -47,9 +47,11 @@
     <tfoot>
     <tr>
         <td>
-            <form method="POST" id="yourGarage">
+            <form method="get" id="yourGarage">
                 <button type="button" class="button-secondary pure-button" name="add to garage">Add to Garage</button>
-                <button type="button" id="yourGarage" class="button-success pure-button" name="create new garage">Create
+                <button formmethod="get" type="submit" id="yourGarage" class="button-success pure-button" name="create
+                new
+                garage">Create
                     New
                     Garage</button>
             </form>
@@ -114,7 +116,7 @@ if ($result = $mysqli->query($query)){
     $result->close();
 }
 
-if (isset($POST_["create new garage"])){
+if (isset($GET_["create new garage"])){
     echo '<html lang="en-US"><h1>hello world</h1></html>';
     // create garage (temporary db table)
     $tempQuery = "CREATE TEMPORARY TABLE IF NOT EXISTS `TempCars`(
