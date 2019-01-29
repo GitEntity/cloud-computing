@@ -5,6 +5,9 @@
  * Date: 1/29/2019
  * Time: 1:50 PM
  */
+
+include "assignment.php";
+
 if (isset($_POST["deleteGarage"])) {
     // delete garage
     $tempQuery = "DROP TEMPORARY TABLE IF EXISTS TempCars;";
