@@ -40,12 +40,12 @@
     <thead>
         <tr>
             <th>All Cars</th>
-            <th>Your Garage</th>
+            <th class="pad">Your Garage</th>
         </tr>
     </thead>
     <tfoot>
     <tr>
-        <td>
+        <td class="pad">
             <form method="POST">
                 <button class="button-secondary pure-button" name="add to garage">Add to Garage</button>
                 <button class="button-success pure-button" name="create new garage">Create New Garage</button>

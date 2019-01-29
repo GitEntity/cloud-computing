@@ -26,6 +26,11 @@ td.pad{
     padding-left: 50%;
 }
 
+th.pad{
+    position: fixed;
+    padding-left: 50%;
+}
+
 th.rotate {
     /* Something you can count on */
     height: 140px;
